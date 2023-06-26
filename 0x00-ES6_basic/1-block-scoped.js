@@ -3,8 +3,8 @@ export default function taskBlock(trueOrFalse) {
   const task2 = true;
 
   if (trueOrFalse) {
-    const task = true;
-    const task2 = false;
+    const task = true; //no-unused-vars
+    const task2 = false; //no-unused-vars
   }
 
   return [task, task2];
