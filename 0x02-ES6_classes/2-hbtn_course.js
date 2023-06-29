@@ -62,7 +62,7 @@ export default class HolbertonCourse {
   */
 
   set students(list) {
-    if !(list instanceof Array) {
+    if (!(list instanceof Array)) {
       throw new TypeError('Students must be an array of strings');
     }
     list.forEach((name) => {
