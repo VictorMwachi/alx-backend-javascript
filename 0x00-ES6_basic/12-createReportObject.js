@@ -5,4 +5,6 @@ export default function createReportObject(employeesList) {
 			return Object.keys(object).length;
 		}
 	};
+
+	return report;
 }
