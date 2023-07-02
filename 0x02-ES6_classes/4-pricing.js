@@ -5,7 +5,6 @@ export default Pricing {
 		this._amount = amount;
 		this._currency = currency;
 	}
-
 	get amount(){
 		return this._amount;
 	}
@@ -24,7 +23,18 @@ export default Pricing {
 		}
 		this._currency = value;
 	}
-	static displayFullPrice(){
-		return `${_amount} ${Currency.displayFullCurrency()}
+	displayFullPrice(){
+		return `${_amount} ${this._currency.name} (${this._currency.code})`;
+	}
+	static convertPrice(amount,conversionRate){
+		if(typeof amount !=='number'){
+			throw new TypeError('Amount must be a number');
+		}
+		if(typeof conversionRate !== 'number'){
+			throw new TypeError('Conversion Rate Must be anumber');
+		}
+		return amount * conversionRate;
+	}
+}
 		
 
