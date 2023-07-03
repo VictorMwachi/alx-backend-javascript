@@ -1,3 +1,3 @@
 function hasValuesFromArray(set, array) {
-	return set.has(array.map((arrayItem)=>arrayItem)));
+	return array.forEach((arrayItem)=>set.has(arrayItem)));
 }
