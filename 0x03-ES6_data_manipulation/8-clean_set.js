@@ -1,0 +1,2 @@
+function cleanSet (set, startString) {
+}
