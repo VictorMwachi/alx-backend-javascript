@@ -15,3 +15,6 @@ const countStudents = (path) => {
     .toString('utf-8')
     .trim()
     .split('\n');
+  const studentGroups = {};
+  const dbFieldNames = lines[0].split(',');
+  const studentPropNames = dbFieldNames.slice(0, dbFieldNames.length - 1);
