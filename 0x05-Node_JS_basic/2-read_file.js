@@ -4,17 +4,16 @@ const fs = require('fs');
  */
 
 const countStudents = (path) => {
-  if (!fs.existsSync(path)) {
-    throw new Error('Cannot load the database');
-  }
-  if (!fs.statSync(path).isFile()) {
-    throw new Error('Cannot load the database');
-  }
-  const lines = fs
-    .readFileSync(path, 'utf-8')
-    .toString('utf-8')
-    .trim()
-    .split('\n');
-  const studentGroups = {};
-  const dbFieldNames = lines[0].split(',');
-  const studentPropNames = dbFieldNames.slice(0, dbFieldNames.length - 1);
+	if (!fs.existsSync(path)) {
+		throw new Error('Cannot load the database');
+	}
+	if (!fs.statSync(path).isFile()) {
+		throw new Error('Cannot load the database');
+	}
+	const fileLines = fs
+		.readFileSync(path, 'utf-8')
+		.trim()
+		.split('\n');
+	const studentGroups = {};
+	const dbFieldNames = fileLines[0].split(',');
+	const studentPropNames = dbFieldNames.slice(0, dbFieldNames.length - 1);
