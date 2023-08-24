@@ -14,8 +14,8 @@ const countStudents = (path) => {
 		.readFileSync(path, 'utf-8')
 		.trim()
 		.split('\n');
-	const fieldIdx = db.split("\n")[0].split(",").indexOf("field")
-	const firstnameIdx = db.split("\n")[0].split(",").indexOf("firstname")
+	const field = fileLines[0].split(",").indexOf("field")
+	const firstname = fileLines[0].split(",").indexOf("firstname")
 	const studentGroups = {};
 	const studentList = {};
 	const data = fileLines.slice(1);
@@ -32,4 +32,9 @@ const countStudents = (path) => {
 			studentList[student[field]].push(student[firstname]);
 		}
 	}
+	console.log(`Number of students: ${data.length}`);
+	Object.keys(studentList).forEach((key) => {
+		console.log(`Number of students in ${key}: ${studentGroups[key]}. List: ${studentList[key]}`);
+	});
 	}
+module.exports = countStudents;
