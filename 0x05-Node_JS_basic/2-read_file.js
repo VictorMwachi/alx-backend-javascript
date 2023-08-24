@@ -14,6 +14,22 @@ const countStudents = (path) => {
 		.readFileSync(path, 'utf-8')
 		.trim()
 		.split('\n');
+	const fieldIdx = db.split("\n")[0].split(",").indexOf("field")
+	const firstnameIdx = db.split("\n")[0].split(",").indexOf("firstname")
 	const studentGroups = {};
-	const dbFieldNames = fileLines[0].split(',');
-	const studentPropNames = dbFieldNames.slice(0, dbFieldNames.length - 1);
+	const studentList = {};
+	const data = fileLines.slice(1);
+	for (idx in data){
+		const student = data[idx].split(",");
+		if(studentGroups[student[field]] === undefined){
+			studentGroups[student[field]] = 1;
+			if(studentList[student[field]] === undefined){
+				studentList[student[field]]=[student[firstname]]
+			}
+		}
+		else{
+			studentGroups[student[field]]++;
+			studentList[student[field]].push(student[firstname]);
+		}
+	}
+	}
