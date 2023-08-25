@@ -33,7 +33,7 @@ const countStudents = (path) => {
   }
   console.log(`Number of students: ${data.length}`);
   Object.keys(studentList).forEach((key) => {
-    console.log(`Number of students in ${key}: ${studentGroups[key]}. List: ${studentList[key].join(' ')}`);
+    console.log(`Number of students in ${key}: ${studentGroups[key]}. List: ${studentList[key].join(', ')}`);
   });
 };
 module.exports = countStudents;
