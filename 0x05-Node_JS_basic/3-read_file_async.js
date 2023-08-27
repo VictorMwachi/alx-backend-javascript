@@ -35,6 +35,7 @@ const countStudents = (path) => new Promise((resolve, reject) => {
 			    console.log(`Number of students in ${key}: ${studentGroups[key]}. List: ${studentList[key].join(', ')}`);
 		    });
 	    };
+	    resolve();
     });
 });
 module.exports = countStudents;
