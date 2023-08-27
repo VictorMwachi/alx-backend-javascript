@@ -6,11 +6,10 @@ const fs = require('fs');
 const countStudents = (path) => new Promise((resolve, reject) => {
     fs.read(path, 'utf-8', (err, fdata) => {
 	    if (err) {
-		    reject(throw new Error('Cannot load the database'));
+		    reject(new Error('Cannot load the database'));
 	    }
-	    if (data) {
-		    const fileLines = fs
-			    .read(fdata, 'utf-8')
+	    if (fdata) {
+		    const fileLines = fdata.toString()
 			    .trim()
 			    .split('\n');
 		    const field = fileLines[0].split(',').indexOf('field');
@@ -37,5 +36,5 @@ const countStudents = (path) => new Promise((resolve, reject) => {
 		    });
 	    };
     });
-}
+});
 module.exports = countStudents;
