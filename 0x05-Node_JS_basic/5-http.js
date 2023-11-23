@@ -28,9 +28,9 @@ const countStudents = (path) => new Promise((resolve, reject) => {
           studentList[student[field]].push(student[firstname]);
         }
       }
-      console.log('This is the list of our students');
+      process.stdout.write('This is the list of our students');
       Object.keys(studentList).forEach((key) => {
-        console.log(`Number of students in ${key}: ${studentGroups[key]}. List: ${studentList[key].join(', ')}`);
+        process.stdout.write(`Number of students in ${key}: ${studentGroups[key]}. List: ${studentList[key].join(', ')}`);
       });
     }
     resolve();
@@ -43,7 +43,6 @@ const app = http.createServer((req, res) => {
 	if(url ==='/'){
 		res.write('Hello Holberton School!');}
 	if(url ==='/students') {
-		console.log(process.argv.length);
 		countStudents(process.argv[2])
 	}
 	res.end();
