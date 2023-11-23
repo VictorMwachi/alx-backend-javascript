@@ -41,18 +41,28 @@ const app = http.createServer((req, res) => {
   const { url } = req;
   res.setHeader('Content-Type', 'text/plain');
   if (url === '/') {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.write('Hello Holberton School!');
-    res.statusCode = 200;
     res.end();
   }
-  if (url === '/students') {
+  else if (url === '/students') {
     countStudents(process.argv[2])
       .then((output) => {
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
         res.write('This is the list of our students');
         res.write(output);
-        res.statusCode = 200;
+        res.end();
+      })
+    .catch((error) => {
+        res.writeHead(500, { 'Content-Type': 'text/plain' });
+        res.write(`Error: ${error.message}`);
         res.end();
       });
+  } else {
+    // Handle 404 Not Found for other paths
+    res.writeHead(404, { 'Content-Type': 'text/plain' });
+    res.write('Not Found');
+    res.end();
   }
 });
 app.listen(1245, '127.0.0.1');
