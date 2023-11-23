@@ -1,6 +1,7 @@
 const http = require('http');
 const fs = require('fs');
-const countStudents = require('./3-read_file_async');
+const countStudents = (path) => new Promise((resolve, reject) => {
+});
 
 const app = http.createServer((req, res) => {
   const { url } = req;
