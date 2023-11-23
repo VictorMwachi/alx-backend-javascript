@@ -28,12 +28,12 @@ const countStudents = (path) => new Promise((resolve, reject) => {
           studentList[student[field]].push(student[firstname]);
         }
       }
-      console.log(`Number of students: ${data.length}`);
+      let output = `Number of students: ${data.length}`;
       Object.keys(studentList).forEach((key) => {
-        console.log(`Number of students in ${key}: ${studentGroups[key]}. List: ${studentList[key].join(', ')}`);
+        output+=`Number of students in ${key}: ${studentGroups[key]}. List: ${studentList[key].join(', ')}`;
       });
     }
-    resolve();
+    resolve(output);
   });
 });
 module.exports = countStudents;
