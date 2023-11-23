@@ -41,10 +41,10 @@ const app = http.createServer((req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Content-Type', 'text/plain');
 	if(url ==='/'){
-		res.send('Hello Holberton School!');}
+		res.write('Hello Holberton School!');}
 	if(url ==='/students') {
 		console.log(process.argv.length);
-		res.send(process.argv[2])
+		res.write(process.argv[2])
 	}
 });
 app.listen(1245, '127.0.0.1');
