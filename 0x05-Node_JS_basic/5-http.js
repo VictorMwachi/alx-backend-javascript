@@ -33,11 +33,11 @@ const countStudents = (path) => new Promise((resolve, reject) => {
         process.stdout.write(`Number of students in ${key}: ${studentGroups[key]}. List: ${studentList[key].join(', ')}`);
       });
     }
-    resolve(process.stdout.write('This is the list of our students'),
+    resolve([process.stdout.write('This is the list of our students'),
       Object.keys(studentList).forEach((key) => {
         process.stdout.write(`Number of students in ${key}: ${studentGroups[key]}. List: ${studentList[key].join(', ')}`);
       
-  });
+  })]
 });
 const app = http.createServer((req, res) => {
 	const url = req.url;
