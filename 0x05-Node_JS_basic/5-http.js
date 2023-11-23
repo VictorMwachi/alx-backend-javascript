@@ -11,9 +11,10 @@ const app = http.createServer((req, res) => {
 		countStudents(process.argv[2])
 		.then((output)=>{
 			res.write(output)
+			res.end();
 		})
 	}
-	res.end();
+	
 });
 app.listen(1245, '127.0.0.1');
 module.exports = app;
