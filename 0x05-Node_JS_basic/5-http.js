@@ -31,7 +31,7 @@ const countStudents = (path) => new Promise((resolve, reject) => {
       Object.keys(studentList).forEach((key) => {
         output += `Number of students in ${key}: ${studentGroups[key]}. List: ${studentList[key].join(', ')}\n`;
       });
-      output += output.trim();
+      output = output.trim();
       resolve(output);
     }
   });
