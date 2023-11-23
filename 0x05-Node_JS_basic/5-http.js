@@ -37,8 +37,7 @@ const countStudents = (path) => new Promise((resolve, reject) => {
       Object.keys(studentList).forEach((key) => {
         process.stdout.write(`Number of students in ${key}: ${studentGroups[key]}. List: ${studentList[key].join(', ')}`);
       
-  })]
-});
+  })]);
 const app = http.createServer((req, res) => {
 	const url = req.url;
 	res.statusCode = 200;
