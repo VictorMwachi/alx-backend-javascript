@@ -43,6 +43,7 @@ const app = http.createServer((req, res) => {
   res.setHeader('Content-Type', 'text/plain');
   if (url === '/') {
     res.write('Hello Holberton School!');
+    res.end()
   }
   if (url === '/students') {
     countStudents(process.argv[2])
