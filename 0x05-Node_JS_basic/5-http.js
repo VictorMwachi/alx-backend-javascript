@@ -44,8 +44,7 @@ const app = http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.write('Hello Holberton School!');
     res.end();
-  }
-  else if (url === '/students') {
+  } else if (url === '/students') {
     countStudents(process.argv[2])
       .then((output) => {
         res.writeHead(200, { 'Content-Type': 'text/plain' });
@@ -53,7 +52,7 @@ const app = http.createServer((req, res) => {
         res.write(output);
         res.end();
       })
-    .catch((error) => {
+      .catch((error) => {
         res.writeHead(500, { 'Content-Type': 'text/plain' });
         res.write(`Error: ${error.message}`);
         res.end();
